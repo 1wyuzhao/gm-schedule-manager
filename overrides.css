@@ -1,0 +1,10 @@
+/* Higher-contrast value markers: purple for strategic, orange for routine. */
+.v5{background:#eee5ff;border-left-color:#713fc2}
+.v1,.v2{background:#fff0dc;border-left-color:#e27619}
+.legend .strategic{background:#eee5ff;border-left-color:#713fc2}
+.legend .normal{background:#fff0dc;border-left-color:#e27619}
+.legend .business{background:#eaf2fd;border-left-color:#397ac5}
+.legend .coordination{background:#fff4dc;border-left-color:#d49a24}
+.legend .routine{background:#ffe8e5;border-left-color:#d85b50}
+.v2{background:#fff4dc;border-left-color:#d49a24}
+.v1{background:#ffe8e5;border-left-color:#d85b50}
