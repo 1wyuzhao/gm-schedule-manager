@@ -21,18 +21,20 @@
     </div>
   </header>
   <main>
-    <section class="intro"><div><p id="rangeLabel">—</p><h1>二维时间排程表</h1><span>横向为时间，纵向为日期 · 每格 15 分钟 · 双向滚动浏览</span></div><div class="legend"><i class="strategic"></i>战略决策 <i class="management"></i>经营管理 <i class="business"></i>业务沟通 <i class="coordination"></i>内部协调 <i class="routine"></i>普通事务 <i class="rest"></i>固定休息</div></section>
+    <section class="intro"><div><p id="rangeLabel">—</p><h1>二维时间排程表</h1></div><div class="legend"><i class="strategic"></i>战略决策 <i class="management"></i>经营管理 <i class="business"></i>业务沟通 <i class="coordination"></i>内部协调 <i class="routine"></i>普通事务</div></section>
     <section class="schedule-card">
-      <div class="schedule-tools"><strong>排程总览</strong><span>12:00–13:00 固定休息 · 星期日不安排日程</span><input id="searchInput" type="search" placeholder="搜索事项、参与人员、地点" /></div>
+      <div class="schedule-tools"><strong>排程总览</strong><span>星期日不安排日程</span><input id="searchInput" type="search" placeholder="搜索事项、参与人员、地点" /></div>
       <div class="schedule-scroll" id="scheduleScroll"><div id="scheduleGrid"></div></div>
     </section>
-    <section class="bottom-row"><p id="notice">提示：点击已有事项可编辑；点击空白时间格可快速新建。</p><div class="backup-controls"><span id="lastBackup">最后导出：尚未备份</span><button class="link-btn strong-link" id="backupBtn">立即备份（Excel）</button><label class="link-btn" for="restoreInput">导入 Excel<input id="restoreInput" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden></label><button class="link-btn danger" id="clearBtn">清空本地数据</button></div></section>
+    <section class="bottom-row"><div></div><div class="backup-controls"><span id="lastBackup">最后导出：尚未备份</span><button class="link-btn strong-link" id="backupBtn">导出Excel</button><label class="link-btn" for="restoreInput">导入 Excel<input id="restoreInput" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden></label><button class="link-btn danger" id="clearBtn">清空本地数据</button></div></section>
   </main>
   <dialog id="eventDialog"><form id="eventForm" method="dialog"><div class="modal-head"><div><p id="formMode">新建日程</p><h2>安排总经理时间</h2></div><button class="close" type="button" id="closeDialog">×</button></div><input id="eventId" type="hidden"><div class="form-grid"><label>日期<input id="eventDate" type="date" required></label><label>事项名称<input id="eventTitle" maxlength="50" required></label><label>开始时间<select id="startTime"></select></label><label>结束时间<select id="endTime"></select></label><label>会议类型<input id="eventType" placeholder="如：经营会议"></label><label>参与人员<input id="eventPeople" placeholder="如：财务总监、业务负责人"></label><label>地点<input id="eventLocation" placeholder="如：第一会议室"></label><label>重要等级<select id="eventValue"><option value="5">★★★★★ 战略决策</option><option value="4">★★★★ 经营管理</option><option value="3" selected>★★★ 业务沟通</option><option value="2">★★ 内部协调</option><option value="1">★ 普通事务</option></select></label><label>总经理参加<select id="eventAttendance"><option>必须参加</option><option>建议参加</option><option selected>可授权</option></select></label><label>准备时间（分钟）<input id="eventPrepTime" type="number" min="0" step="15" value="0"></label><label class="full">备注<textarea id="eventNotes" rows="3"></textarea></label></div><p id="formAlert" class="form-alert"></p><div class="modal-foot"><button id="deleteBtn" class="link-btn danger" type="button" hidden>删除日程</button><span></span><button class="btn" type="button" id="cancelBtn">取消</button><button class="btn primary">保存日程</button></div></form></dialog>
-  <span hidden><button id="exportBtn"></button><input id="importInput" type="file"></span><div class="toast" id="toast"></div>
+  <span hidden><button id="exportBtn"></button><button id="exportExcelTop"></button><input id="importInput" type="file"></span><div class="toast" id="toast"></div>
   <script src="xlsx-lite.js"></script>
   <script src="xlsx-fix.js"></script>
   <script src="script.js"></script>
   <script src="xlsx-migration.js"></script>
+  <script src="excel-export.js"></script>
+  <script src="export-location.js"></script>
 </body>
 </html>
